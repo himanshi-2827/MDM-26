@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>College FAQ</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f6f9;
+            color: #333;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 700px;
+            margin: 50px auto;
+        }
+
+        h1 {
+            text-align: center;
+            color: #1d4ed8;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        .faq {
+            background: white;
+            margin-bottom: 12px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .question {
+            width: 100%;
+            padding: 18px;
+            border: none;
+            background: white;
+            text-align: left;
+            font-size: 17px;
+            font-weight: bold;
+            cursor: pointer;
+            color: #222;
+        }
+
+        .question:hover {
+            background: #eff6ff;
+        }
+
+        .answer {
+            display: none;
+            padding: 0 18px 18px;
+            line-height: 1.6;
+            color: #555;
+        }
+
+        .question.active {
+            color: #1d4ed8;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>College FAQ</h1>
+        <p class="subtitle">
+            Frequently Asked Questions for Students
+        </p>
+
+        <div class="faq">
+            <button class="question">
+                What are the college admission requirements?
+            </button>
+            <div class="answer">
+                Students must submit the required academic certificates,
+                identity proof, photographs, and completed admission form.
+            </div>
+        </div>
+
+        <div class="faq">
+            <button class="question">
+                How can I check my exam timetable?
+            </button>
+            <div class="answer">
+                You can check the exam timetable on the college website
+                or through the student portal.
+            </div>
+        </div>
+
+        <div class="faq">
+            <button class="question">
+                Where can I find study materials?
+            </button>
+            <div class="answer">
+                Study materials are available in the student portal
+                under the "Resources" section.
+            </div>
+        </div>
+
+        <div class="faq">
+            <button class="question">
+                How can I contact the department?
+            </button>
+            <div class="answer">
+                You can contact the department office by email, phone,
+                or by visiting the department during office hours.
+            </div>
+        </div>
+
+        <div class="faq">
+            <button class="question">
+                What should I do if I forget my student portal password?
+            </button>
+            <div class="answer">
+                Click the "Forgot Password" option on the login page
+                and follow the instructions to reset your password.
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        // Select all FAQ questions
+        const questions = document.querySelectorAll(".question");
+
+        // Add click event to each question
+        questions.forEach(function(question) {
+
+            question.addEventListener("click", function() {
+
+                // Find the answer belonging to this question
+                const answer = question.nextElementSibling;
+
+                // Show or hide the answer
+                if (answer.style.display === "block") {
+                    answer.style.display = "none";
+                    question.classList.remove("active");
+                } else {
+                    answer.style.display = "block";
+                    question.classList.add("active");
+                }
+
+            });
+
+        });
+    </script>
+
+</body>
+</html>
