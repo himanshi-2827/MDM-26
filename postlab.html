@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>College Canteen</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-orange-50 min-h-screen">
+
+    <!-- Header -->
+    <header class="bg-orange-500 text-white p-6">
+
+        <div class="max-w-6xl mx-auto text-center">
+
+            <h1 class="text-3xl font-bold">
+                🍔 College Canteen
+            </h1>
+
+            <p class="mt-2">
+                Fresh food • Student prices • Happy breaks 😊
+            </p>
+
+        </div>
+
+    </header>
+
+
+    <!-- Welcome -->
+    <section class="max-w-6xl mx-auto p-5">
+
+        <div class="bg-white rounded-2xl shadow p-6 text-center">
+
+            <h2 class="text-2xl font-bold">
+                Welcome Students! 👋
+            </h2>
+
+            <p class="text-gray-500 mt-2">
+                Hungry between lectures? Choose your favourite food!
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- Search -->
+    <section class="max-w-6xl mx-auto px-5">
+
+        <input
+            id="search"
+            onkeyup="searchFood()"
+            type="text"
+            placeholder="🔍 Search food..."
+            class="w-full p-4 rounded-xl border bg-white outline-none focus:ring-2 focus:ring-orange-400"
+        >
+
+    </section>
+
+
+    <!-- Food Menu -->
+    <section class="max-w-6xl mx-auto p-5">
+
+        <h2 class="text-2xl font-bold mb-5">
+            🍴 Today's Menu
+        </h2>
+
+
+        <div id="foodList"
+             class="grid grid-cols-1 md:grid-cols-3 gap-5">
+
+
+            <!-- Food 1 -->
+            <div class="food bg-white rounded-2xl shadow p-5">
+
+                <div class="text-5xl">🍕</div>
+
+                <h3 class="text-xl font-bold mt-4">
+                    Veg Pizza
+                </h3>
+
+                <p class="text-gray-500 mt-2">
+                    Fresh and cheesy pizza
+                </p>
+
+                <p class="text-orange-500 font-bold text-lg mt-3">
+                    ₹80
+                </p>
+
+                <button
+                    onclick="addFood('Veg Pizza',80)"
+                    class="bg-orange-500 text-white px-5 py-2 rounded-xl mt-3">
+                    Add +
+                </button>
+
+            </div>
+
+
+            <!-- Food 2 -->
+            <div class="food bg-white rounded-2xl shadow p-5">
+
+                <div class="text-5xl">🍔</div>
+
+                <h3 class="text-xl font-bold mt-4">
+                    Veg Burger
+                </h3>
+
+                <p class="text-gray-500 mt-2">
+                    Crispy and tasty burger
+                </p>
+
+                <p class="text-orange-500 font-bold text-lg mt-3">
+                    ₹50
+                </p>
+
+                <button
+                    onclick="addFood('Veg Burger',50)"
+                    class="bg-orange-500 text-white px-5 py-2 rounded-xl mt-3">
+                    Add +
+                </button>
+
+            </div>
+
+
+            <!-- Food 3 -->
+            <div class="food bg-white rounded-2xl shadow p-5">
+
+                <div class="text-5xl">🥪</div>
+
+                <h3 class="text-xl font-bold mt-4">
+                    Sandwich
+                </h3>
+
+                <p class="text-gray-500 mt-2">
+                    Fresh vegetable sandwich
+                </p>
+
+                <p class="text-orange-500 font-bold text-lg mt-3">
+                    ₹40
+                </p>
+
+                <button
+                    onclick="addFood('Sandwich',40)"
+                    class="bg-orange-500 text-white px-5 py-2 rounded-xl mt-3">
+                    Add +
+                </button>
+
+            </div>
+
+
+            <!-- Food 4 -->
+            <div class="food bg-white rounded-2xl shadow p-5">
+
+                <div class="text-5xl">🍜</div>
+
+                <h3 class="text-xl font-bold mt-4">
+                    Noodles
+                </h3>
+
+                <p class="text-gray-500 mt-2">
+                    Hot and spicy noodles
+                </p>
+
+                <p class="text-orange-500 font-bold text-lg mt-3">
+                    ₹50
+                </p>
+
+                <button
+                    onclick="addFood('Noodles',50)"
+                    class="bg-orange-500 text-white px-5 py-2 rounded-xl mt-3">
+                    Add +
+                </button>
+
+            </div>
+
+
+            <!-- Food 5 -->
+            <div class="food bg-white rounded-2xl shadow p-5">
+
+                <div class="text-5xl">🥤</div>
+
+                <h3 class="text-xl font-bold mt-4">
+                    Cold Drink
+                </h3>
+
+                <p class="text-gray-500 mt-2">
+                    Chilled refreshing drink
+                </p>
+
+                <p class="text-orange-500 font-bold text-lg mt-3">
+                    ₹30
+                </p>
+
+                <button
+                    onclick="addFood('Cold Drink',30)"
+                    class="bg-orange-500 text-white px-5 py-2 rounded-xl mt-3">
+                    Add +
+                </button>
+
+            </div>
+
+
+            <!-- Food 6 -->
+            <div class="food bg-white rounded-2xl shadow p-5">
+
+                <div class="text-5xl">☕</div>
+
+                <h3 class="text-xl font-bold mt-4">
+                    Tea
+                </h3>
+
+                <p class="text-gray-500 mt-2">
+                    Hot tea for your break
+                </p>
+
+                <p class="text-orange-500 font-bold text-lg mt-3">
+                    ₹15
+                </p>
+
+                <button
+                    onclick="addFood('Tea',15)"
+                    class="bg-orange-500 text-white px-5 py-2 rounded-xl mt-3">
+                    Add +
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Order -->
+    <section class="max-w-6xl mx-auto px-5 pb-8">
+
+        <div class="bg-white rounded-2xl shadow p-6">
+
+            <h2 class="text-2xl font-bold mb-4">
+                🛒 My Order
+            </h2>
+
+            <div id="orderList">
+
+                <p class="text-gray-400">
+                    Your order is empty.
+                </p>
+
+            </div>
+
+
+            <div class="border-t mt-5 pt-4 flex justify-between">
+
+                <h3 class="text-xl font-bold">
+                    Total
+                </h3>
+
+                <h3 id="total"
+                    class="text-xl font-bold text-orange-500">
+                    ₹0
+                </h3>
+
+            </div>
+
+
+            <button
+                onclick="placeOrder()"
+                class="w-full bg-green-500 text-white p-3 rounded-xl mt-5 hover:bg-green-600">
+
+                Place Order 🍴
+
+            </button>
+
+            <p id="message"
+               class="text-center mt-3 font-semibold">
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- Footer -->
+    <footer class="bg-orange-500 text-white text-center p-5">
+
+        <p>
+            Made with ❤️ for college students
+        </p>
+
+        <p class="text-sm mt-1">
+            College Canteen
+        </p>
+
+    </footer>
+
+
+    <!-- JavaScript -->
+    <script>
+
+        let order = [];
+
+
+        // Add food
+        function addFood(name, price) {
+
+            order.push({
+                name: name,
+                price: price
+            });
+
+            showOrder();
+
+        }
+
+
+        // Show order
+        function showOrder() {
+
+            let list =
+                document.getElementById("orderList");
+
+            list.innerHTML = "";
+
+
+            if (order.length === 0) {
+
+                list.innerHTML =
+                    `<p class="text-gray-400">
+                        Your order is empty.
+                    </p>`;
+
+                document.getElementById("total").innerText =
+                    "₹0";
+
+                return;
+            }
+
+
+            let total = 0;
+
+
+            order.forEach(function(item, index) {
+
+                total += item.price;
+
+
+                list.innerHTML += `
+
+                    <div class="flex justify-between
+                    items-center bg-orange-50
+                    p-3 rounded-xl mb-2">
+
+                        <span>
+                            ${item.name} - ₹${item.price}
+                        </span>
+
+                        <button
+                            onclick="removeFood(${index})"
+                            class="text-red-500">
+
+                            🗑️
+
+                        </button>
+
+                    </div>
+
+                `;
+
+            });
+
+
+            document.getElementById("total").innerText =
+                "₹" + total;
+
+        }
+
+
+        // Remove food
+        function removeFood(index) {
+
+            order.splice(index, 1);
+
+            showOrder();
+
+        }
+
+
+        // Place order
+        function placeOrder() {
+
+            let message =
+                document.getElementById("message");
+
+
+            if (order.length === 0) {
+
+                message.innerText =
+                    "⚠️ Please add some food first.";
+
+                message.className =
+                    "text-center mt-3 font-semibold text-red-500";
+
+                return;
+            }
+
+
+            message.innerText =
+                "✅ Order placed successfully!";
+
+            message.className =
+                "text-center mt-3 font-semibold text-green-600";
+
+
+            order = [];
+
+            showOrder();
+
+        }
+
+
+        // Search food
+        function searchFood() {
+
+            let search =
+                document.getElementById("search")
+                .value.toLowerCase();
+
+
+            let foods =
+                document.querySelectorAll(".food");
+
+
+            foods.forEach(function(food) {
+
+                let name =
+                    food.innerText.toLowerCase();
+
+
+                if (name.includes(search)) {
+
+                    food.style.display = "block";
+
+                } else {
+
+                    food.style.display = "none";
+
+                }
+
+            });
+
+        }
+
+    </script>
+
+</body>
+
+</html>
