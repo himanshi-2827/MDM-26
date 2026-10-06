@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Daily Tasks</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-purple-50 min-h-screen">
+
+    <!-- Header -->
+    <div class="bg-purple-600 text-white text-center p-6">
+        <h1 class="text-3xl font-bold">🌸 My Daily Tasks</h1>
+        <p class="mt-2">Plan it • Do it • Complete it</p>
+    </div>
+
+
+    <!-- Main -->
+    <div class="max-w-xl mx-auto p-5">
+
+        <!-- Add Task -->
+        <div class="bg-white p-5 rounded-2xl shadow mt-5">
+
+            <h2 class="text-xl font-bold mb-4">
+                ➕ Add Your Task
+            </h2>
+
+            <div class="flex gap-2">
+
+                <input
+                    id="taskInput"
+                    type="text"
+                    placeholder="Enter your task..."
+                    class="flex-1 border p-3 rounded-xl"
+                >
+
+                <button
+                    onclick="addTask()"
+                    class="bg-purple-600 text-white px-5 rounded-xl">
+                    Add
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- Task List -->
+        <div class="bg-white p-5 rounded-2xl shadow mt-5">
+
+            <h2 class="text-xl font-bold mb-4">
+                📝 My Tasks
+            </h2>
+
+            <div id="taskList"></div>
+
+        </div>
+
+
+        <!-- Progress -->
+        <div class="bg-purple-600 text-white p-5 rounded-2xl shadow mt-5 text-center">
+
+            <p>Completed Tasks</p>
+
+            <h2 id="count" class="text-3xl font-bold">
+                0
+            </h2>
+
+        </div>
+
+    </div>
+
+
+    <!-- JavaScript -->
+    <script>
+
+        let tasks = [];
+
+        function addTask() {
+
+            let input =
+                document.getElementById("taskInput");
+
+            let task =
+                input.value.trim();
+
+            if (task == "") {
+                alert("Please enter a task!");
+                return;
+            }
+
+            tasks.push({
+                name: task,
+                completed: false
+            });
+
+            input.value = "";
+
+            showTasks();
+        }
+
+
+        function showTasks() {
+
+            let list =
+                document.getElementById("taskList");
+
+            list.innerHTML = "";
+
+            tasks.forEach(function(task, index) {
+
+                list.innerHTML += `
+
+                    <div class="flex justify-between items-center
+                    bg-purple-50 p-3 rounded-xl mb-3">
+
+                        <div>
+
+                            <input
+                                type="checkbox"
+                                onclick="completeTask(${index})"
+                                ${task.completed ? "checked" : ""}
+                                class="mr-2"
+                            >
+
+                            <span class="${
+                                task.completed
+                                ? "line-through text-gray-400"
+                                : ""
+                            }">
+
+                                ${task.name}
+
+                            </span>
+
+                        </div>
+
+
+                        <button
+                            onclick="deleteTask(${index})"
+                            class="text-red-500">
+
+                            🗑️
+
+                        </button>
+
+                    </div>
+
+                `;
+
+            });
+
+            updateCount();
+        }
+
+
+        function completeTask(index) {
+
+            tasks[index].completed =
+                !tasks[index].completed;
+
+            showTasks();
+        }
+
+
+        function deleteTask(index) {
+
+            tasks.splice(index, 1);
+
+            showTasks();
+        }
+
+
+        function updateCount() {
+
+            let completed =
+                tasks.filter(task => task.completed).length;
+
+            document.getElementById("count").innerText =
+                completed;
+        }
+
+    </script>
+
+</body>
+</html>
